@@ -2,17 +2,11 @@ pipeline {
     agent any
 
     environment {
-        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64' // adjust if different
+        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64' // Adjust if needed
         PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/sivauser2001/my-java-app.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'mkdir -p out'
@@ -49,3 +43,4 @@ pipeline {
         }
     }
 }
+
